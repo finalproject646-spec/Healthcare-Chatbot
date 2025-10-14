@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Service</title>
+  <link rel="stylesheet" href="Styles/Home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <span class="back-btn" id="back-btn">←</span>
+    <h1 class="page-title" id="services-title">Healthcare Services</h1>
+    <div class="lang-toggle">
+      <button class="lang-en">English</button>
+      <button class="lang-ur">اردو</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <h2 id="welcome">Welcome to Healthcare Service</h2>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="🔍 Search by Patient Name or Appointment ID">
+      <button class="search-btn" id="search-btn">Search</button>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-container">
+      <div class="stat-card">
+        <h3 id="patients-stat-title">👨‍⚕️ Patients</h3>
+        <p id="patients-stat-value">120</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="appointments-stat-title">📅 Appointments</h3>
+        <p id="appointments-stat-value">5 Upcoming</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="reports-stat-title">📑 Reports</h3>
+        <p id="reports-stat-value">45 Available</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="Profile.html" class="nav-item" id="nav-profile">
+      <span class="icon">👤</span>
+      <span class="label" id="profile-label">Profile</span>
+    </a>
+    <a href="Patients.html" class="nav-item" id="nav-patients">
+      <span class="icon">🧑‍⚕️</span>
+      <span class="label" id="nav-patients-label">Patients Records</span>
+    </a>
+    <a href="Appointment.html" class="nav-item" id="nav-appointments">
+      <span class="icon">📅</span>
+      <span class="label" id="nav-appointments-label">Appointments</span>
+    </a>
+    <a href="Reports.html" class="nav-item" id="nav-reports">
+      <span class="icon">📑</span>
+      <span class="label" id="nav-reports-label">Reports</span>
+    </a>
+  </nav>
+  
+  <script src="JS/Home.js"></script>
+  <script>
+  const savedLang = localStorage.getItem("lang") || "en";
+  switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
+</script>
+
+</body>
+</html>

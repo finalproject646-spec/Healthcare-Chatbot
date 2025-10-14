@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="Styles/Profile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1 class="page-title" id="profile-title">Profile</h1>
+    <div class="lang-toggle">
+      <button class="lang-en">English</button>
+      <button class="lang-ur">اردو</button>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <main class="main-content">
+    <section class="profile-section">
+      <!-- Profile Image + Name -->
+      <div class="profile-header">
+  <div class="profile-pic">
+    <img src="Images/Default_Profile.jpg" alt="Profile Picture" id="profile-img">
+    <button class="change-pic-btn" id="change-pic-btn">Change</button>
+    <!-- Hidden file input -->
+    <input type="file" id="file-input" accept="image/*" style="display:none;">
+  </div>
+  <div class="profile-info">
+    <h2 id="user-name">User Name</h2>
+    <p id="username">@username</p>
+  </div>
+</div>
+
+      <!-- Profile Details -->
+<div class="profile-details">
+  <p id="user-email">📧 example@email.com</p>
+  <p id="user-contact">📞 0000-0000000</p>
+  <p id="user-dob">🎂 Date of Birth: DD-MM-YYYY</p>
+  <p id="user-gender">👤 Gender: Not Set</p>
+  <p id="user-address">🏠 Address: Not Provided</p>
+  <p id="user-language">🌐 Preferred Language: English</p>
+</div>
+
+      <!-- Actions -->
+  <div class="profile-actions">
+  <button class="edit-btn" id="edit-btn">Edit Profile</button>
+  <button class="logout-btn" id="logout-btn">Logout</button>
+</div>
+
+<!-- Edit Profile Modal -->
+<div id="edit-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal">&times;</span>
+    <h2>Edit Profile</h2>
+    <form id="edit-profile-form">
+      <label for="edit-name">Name</label>
+      <input type="text" id="edit-name" placeholder="Enter your name">
+
+      <label for="edit-username">Username</label>
+      <input type="text" id="edit-username" placeholder="Enter your username">
+
+      <label for="edit-email">Email</label>
+      <input type="email" id="edit-email" placeholder="Enter your email">
+
+      <label for="edit-contact">Contact</label>
+      <input type="text" id="edit-contact" placeholder="Enter your contact">
+
+      <label for="edit-dob">Date of Birth</label>
+      <input type="date" id="edit-dob">
+
+      <label for="edit-gender">Gender</label>
+      <select id="edit-gender">
+        <option value="notset">Not Set</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <label for="edit-address">Address</label>
+      <input type="text" id="edit-address" placeholder="Enter your address">
+
+      <label for="edit-language">Preferred Language</label>
+      <select id="edit-language">
+        <option value="English">English</option>
+        <option value="اردو">اردو</option>
+      </select>
+
+      <form id="edit-profile-form">
+  <!-- existing fields ... -->
+
+  <div class="form-actions">
+    <button type="submit" class="save-btn">Save Changes</button>
+    <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+  </div>
+</form>
+
+    </form>
+  </div>
+</div>
+
+    </section>
+  </main>
+
+    <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item" id="nav-profile">
+      <span class="icon">👤</span>
+      <span class="label" id="profile-label">Profile</span>
+    </div>
+    <div class="nav-item" id="nav-patients">
+      <span class="icon">🧑‍⚕️</span>
+      <span class="label" id="nav-patients-label">Patients Records</span>
+    </div>
+    <div class="nav-item" id="nav-appointments">
+      <span class="icon">📅</span>
+      <span class="label" id="nav-appointments-label">Appointments</span>
+    </div>
+    <div class="nav-item" id="nav-reports">
+      <span class="icon">📑</span>
+      <span class="label" id="nav-reports-label">Reports</span>
+    </div>
+  </nav>
+
+  <script src="JS/Profile.js"></script>
+  <script>
+  const savedLang = localStorage.getItem("lang") || "en";
+  switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
+</script>
+
+</body>
+</html>
+

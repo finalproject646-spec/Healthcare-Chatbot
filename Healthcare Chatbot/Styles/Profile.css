@@ -1,0 +1,283 @@
+/* Background */
+body {
+  font-family: Arial, sans-serif;
+  background: url('../images/Profile.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #120303; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* shadow for readability */
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* top se start hoga */
+  padding: 20px;
+  padding-bottom: 80px;  /* 👈 extra space for bottom nav */
+  text-align: center;
+  overflow-y: auto;      /* scroll enable if needed */
+}
+
+/* Profile section */
+.profile-section {
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+}
+
+/* Profile Header Row */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;         /* space between pic and text */
+  margin-bottom: 20px;
+}
+
+/* Profile Pic */
+.profile-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+.change-pic-btn {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.change-pic-btn:hover { background: #1D4ED8; }
+
+/* Name + Username */
+.profile-info h2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #150e0e;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.profile-info p {
+  font-size: 0.9rem;
+  color: #120a0a;
+  margin-top: 4px;
+}
+
+
+/* Details */
+.profile-details p {
+  margin: 2px 0;
+  font-size: 1rem;
+  color: #260521;
+  text-align: center;
+}
+
+/* Actions */
+.profile-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.edit-btn, .logout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-shadow: none;
+}
+.edit-btn { background: #2563EB; color: white; }
+.edit-btn:hover { background: #1D4ED8; }
+.logout-btn { background: #DC2626; color: white; }
+.logout-btn:hover { background: #B91C1C; }
+
+.edit-btn,
+.logout-btn,
+.change-pic-btn {
+  font-family: inherit;  /* 👈 Follow body font */
+}
+
+
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+.nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.8rem; color: #1E293B; cursor: pointer; }
+.nav-item:hover { color: #2563EB; }
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between; /* Left = title , Right = buttons */
+  align-items: center;
+  padding: 15px 20px;
+  background: #6eaaea;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 0 ;
+}
+
+/* Header Title */
+.page-title {
+  font-size: 1.5rem;   
+  font-weight: 700;  
+  color: #161414;   
+}
+
+
+/* Language Toggle (Right Side) */
+.lang-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-en {
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+.lang-en:hover { background: #f3f4f6; }
+
+.lang-ur {
+  background: #DC2626;
+  color: white;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  border: 1px solid #B91C1C;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+.lang-ur:hover { background: #B91C1C; }
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: url('../images/default_profile.jpg') no-repeat center/cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Modal Base */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #fff;
+  color: #1E293B;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+
+  
+  max-height: 80vh;       
+  overflow-y: auto;       
+  box-sizing: border-box;
+}
+
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Form */
+.modal-content label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 0.9rem;
+}
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.save-btn, .cancel-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.save-btn {
+  background: #2563EB;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #1D4ED8;
+}
+
+.cancel-btn {
+  background: #DC2626; /* Red */
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #B91C1C;
+}

@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f9; /* light grey background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Chatbot container */
+.chatbot-container {
+  max-width: 600px;
+  width: 100%;
+  height: 90vh;
+  margin: auto;
+  border: none;             /* border remove */
+  border-radius: 0;         /* rounded bhi remove */
+  overflow: hidden;
+  background: transparent;  /* background transparent */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat window */
+.chat-window {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: transparent;  /* transparent background */
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Header Bar */
+.header {
+  display: flex;
+  justify-content: space-between; /* space between left, center, right */
+  align-items: center;
+  background: #1E293B;
+  color: white;
+  padding: 10px 15px;
+}
+
+/* Back Button */
+.back-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Title */
+#title-text {
+  flex: 1;                  /* take remaining space */
+  text-align: center;       /* keep title in center */
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Language Toggle */
+.lang-toggle {
+  display: flex;
+  gap: 5px;
+}
+
+.lang-toggle button {
+  font-size: 12px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lang-en {
+  background: white;
+  color: #1E293B;
+}
+
+.lang-ur {
+  background: #DC2626;
+  color: white;
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+
+.message {
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 15px;
+  max-width: 70%;
+  font-family: 'Noto Nastaliq Urdu', serif;
+
+}
+
+.bot {
+  background: #2563EB;
+  color: white;
+  align-self: flex-start;
+  font-family: 'Noto Nastaliq Urdu', serif;
+
+}
+
+.user {
+  background: #e5e7eb;
+  color: #111;
+  align-self: flex-end;
+}
+
+/* Input area */
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background: #f9fafb;
+  font-family: 'Noto Nastaliq Urdu', serif;
+
+}
+
+#user-input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-family: 'Noto Nastaliq Urdu', serif;
+
+}
+
+#send-btn {
+  background: #DC2626;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Noto Nastaliq Urdu', serif;
+}

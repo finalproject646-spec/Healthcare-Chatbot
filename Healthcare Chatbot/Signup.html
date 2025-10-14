@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="Styles/Signup.css">
+  <!-- Urdu Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="container">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+      <button class="lang-en">English</button>
+      <button class="lang-ur">اردو</button>
+    </div>
+     
+    <h1 id="form-title">Signup</h1>
+    <p id="form-subtitle">Signup for a new account</p>
+
+    <form id="signup-form">
+      <label id="label-name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter  your  full  name" required>
+
+      <label id="label-email">Email</label>
+      <input type="email" id="email" placeholder="Enter  your  email" required>
+
+      <label id="label-password">Password</label>
+      <input type="password" id="password" placeholder="********" required>
+      <small id="password-hint" style="color:red; display:none;">
+      Password must be at least 8 characters</small>
+
+
+      <label id="label-confirm">Confirm Password</label>
+      <input type="password" id="confirmPassword" placeholder="********" required>
+
+      <div class="checkbox">
+        <input type="checkbox" id="remember"> <span id="remember-text">Remember Me</span>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" id="terms" required>
+        <span id="terms-text">I accept the <a href="#">Terms and Conditions</a> & <a href="#">Privacy Policy</a></span>
+      </div>
+
+      <button type="submit" class="btn" id="signup-btn">Signup</button>
+
+      <button type="button" class="google-btn" id="google-btn">Continue with Google</button>
+
+      <p class="footer-text" id="footer-text">Already have an account? <a href="Login.html">Login</a></p>
+    </form>
+  </div>
+
+<script src="Js/Signup.js"></script>
+<script>
+  const savedLang = localStorage.getItem("lang") || "en";
+  switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="Styles/Dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+      <button class="lang-en">English</button>
+      <button class="lang-ur">اردو</button>
+    </div>
+
+    <h1 id="welcome">Welcome to Dashboard</h1>
+    <p id="subtitle">Choose an option below</p>
+
+    <div class="nav-links">
+  <a href="Chatbot.html" class="btn btn-white" id="chatbot-btn">Open Chatbot</a>
+  <a href="Home.html" class="btn btn-white" id="Home-btn">Home</a>
+  <a href="login.html" class="btn logout" id="logout-btn">Logout</a>
+</div>
+
+  </div>
+
+  <script src="Js/Dashboard.js"></script>
+  <script>
+  const savedLang = localStorage.getItem("lang") || "en";
+  switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
+</script>
+
+</body>
+</html>
