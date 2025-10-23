@@ -9,14 +9,28 @@ body {
 
 /* Header */
 .header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 15px 20px; background: #81c3e7;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 15px 20px; 
+  background: #81c3e7;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  border-radius: 0 0 10px 10px;
 }
-.page-title { font-size: 1.5rem; color: #161414; font-weight: 600; }
-.lang-toggle { display: flex; gap: 8px; }
+.page-title { 
+font-size: 1.5rem; 
+color: #161414;
+font-weight: 600;
+ }
+.lang-toggle { 
+  display: flex;
+  gap: 8px;
+}
 .lang-en, .lang-ur {
-  padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 0.9rem;
 }
 .lang-en { background: white; color: black; border: 1px solid #ccc; }
 .lang-ur { background: #DC2626; color: white; font-family: 'Noto Nastaliq Urdu', serif; }
@@ -31,9 +45,10 @@ body {
 .search-bar { display: flex; gap: 10px; margin-bottom: 30px; }
 .search-bar input {
   width: 300px; padding: 10px; border-radius: 6px; border: 1px solid #ccc;
+  font-family: 'Noto Nastaliq Urdu', serif;
 }
 .search-btn {
-  padding: 10px 20px; background: #2563EB; color: white; border: none; border-radius: 6px; cursor: pointer;
+  padding: 10px 20px; background: #2563EB; color: white; border: none; border-radius: 6px; cursor: pointer; font-family: 'Noto Nastaliq Urdu', serif;
 }
 .search-btn:hover { background: #1D4ED8; }
 
@@ -71,4 +86,15 @@ body {
 
 .nav-item:hover { 
   color: #2563EB;      /* Blue hover */
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: black;
+  cursor: pointer;
+}
+.back-btn:hover {
+  opacity: 0.7;
 }

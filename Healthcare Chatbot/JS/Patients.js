@@ -30,9 +30,9 @@ const translationsPatients = {
   ur: {
     title: "مریض کا ریکارڈ",
     addBtn: "مریض شامل کریں",
-    searchPlaceholder: "ID یا نام سے تلاش کریں",
+    searchPlaceholder: "آئی ڈی یا نام سے تلاش کریں",
     table: {
-      id: "شناختی نمبر",
+      id: "آئی ڈی",
       name: "نام",
       age: "عمر",
       gender: "جنس",

@@ -18,40 +18,26 @@
     <h1 id="form-title">Login</h1>
     <p id="form-subtitle">Login to your account</p>
 
-    <form id="login-form">
+    <form id="loginForm">
       <label id="label-email">Email</label>
       <input type="email" id="email" placeholder="Enter your email" required>
 
       <label id="label-password">Password</label>
-      <input type="password" id="password" placeholder="Enter Password" required>
+      <input type="password" id="password" placeholder="********" required>
 
-      <div class="options-row">
       <div class="checkbox">
-       <input type="checkbox" id="remember">
-     <span id="remember-text">Remember Me</span>
-     </div>
-
-     <!-- Forgot password link -->
-     <div class="forgot-password">
-        <a href="#" id="forgot-link">Forgot Password?</a>
-     </div>
-     </div>
+        <input type="checkbox" id="remember">
+        <span id="remember-text">Remember Me</span>
+      </div>
 
       <button type="submit" class="btn" id="login-btn">Login</button>
 
       <button type="button" class="google-btn" id="google-btn">Continue with Google</button>
 
-      <p class="footer-text" id="footer-text">
-        Don’t have an account? <a href="Signup.html">Signup</a>
-      </p>
+      <p class="footer-text" id="footer-text">Don’t have an account? <a href="Signup.html">Signup</a></p>
     </form>
   </div>
 
-<script src="Js/Login.js"></script>
-<script>
-  const savedLang = localStorage.getItem("lang") || "en";
-  switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
-</script>
-
+  <script src="JS/Login.js"></script>
 </body>
 </html>

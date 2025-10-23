@@ -1,184 +1,137 @@
-//  Language translations
-const translationsProfile = {
-  en: {
-    title: "Profile",
-    profile: "Profile",
-    patients: "Patients Records",
-    appointments: "Appointments",
-    reports: "Reports",
-    edit: "Edit Profile",
-    logout: "Logout",
-    changePic: "Change",
-    name: "User Name",
-    username: "@username",
-    email: "📧 example@email.com",
-    contact: "📞 0000-0000000",
-    dob: "🎂 Date of Birth: DD-MM-YYYY",
-    gender: "👤 Gender: Not Set",
-    address: "🏠 Address: Not Provided",
-    language: "🌐 Preferred Language: English"
-  },
-  ur: {
-    title: "پروفائل",
-    profile: "پروفائل",
-    patients: "مریض کا ریکارڈ",
-    appointments: "ملاقاتیں",
-    reports: "رپورٹس",
-    edit: "پروفائل میں ترمیم کریں",
-    logout: "لاگ آؤٹ",
-    changePic: "تبدیل کریں",
-    name: "صارف کا نام",
-    username: "@صارف",
-    email: "📧 ای میل: مثال@ای میل.کوم",
-    contact: "📞 فون نمبر: 0000-0000000",
-    dob: "🎂 تاریخ پیدائش: DD-MM-YYYY",
-    gender: "👤 جنس: مقرر نہیں",
-    address: "🏠 پتہ: فراہم نہیں کیا گیا",
-    language: "🌐 پسندیدہ زبان: اردو"
-  }
-};
+// Profile.js — safe, DOMContentLoaded wrapped and defensive
 
-//  Language toggle
-document.querySelector(".lang-en").addEventListener("click", () => setProfileLang("en"));
-document.querySelector(".lang-ur").addEventListener("click", () => setProfileLang("ur"));
-
-function setProfileLang(lang) {
-  document.getElementById("profile-title").innerText = translationsProfile[lang].title;
-  document.getElementById("profile-label").innerText = translationsProfile[lang].profile;
-  document.getElementById("nav-patients-label").innerText = translationsProfile[lang].patients;
-  document.getElementById("nav-appointments-label").innerText = translationsProfile[lang].appointments;
-  document.getElementById("nav-reports-label").innerText = translationsProfile[lang].reports;
-  document.getElementById("edit-btn").innerText = translationsProfile[lang].edit;
-  document.getElementById("logout-btn").innerText = translationsProfile[lang].logout;
-  document.getElementById("change-pic-btn").innerText = translationsProfile[lang].changePic;
-
-  // Name & Username
-  document.getElementById("user-name").innerText = translationsProfile[lang].name;
-  document.getElementById("username").innerText = translationsProfile[lang].username;
-
-  // Profile Details
-  document.getElementById("user-email").innerText = translationsProfile[lang].email;
-  document.getElementById("user-contact").innerText = translationsProfile[lang].contact;
-  document.getElementById("user-dob").innerText = translationsProfile[lang].dob;
-  document.getElementById("user-gender").innerText = translationsProfile[lang].gender;
-  document.getElementById("user-address").innerText = translationsProfile[lang].address;
-  document.getElementById("user-language").innerText = translationsProfile[lang].language;
-
-  // Apply font + direction
-  if (lang === "ur") {
-    document.body.style.fontFamily = "'Noto Nastaliq Urdu', serif";
-    document.body.setAttribute("dir", "rtl");
-  } else {
-    document.body.style.fontFamily = "Arial, sans-serif";
-    document.body.setAttribute("dir", "ltr");
-  }
-}
-
-//  Navigation
-document.getElementById("nav-profile").addEventListener("click", () => window.location.href = "profile.html");
-document.getElementById("nav-patients").addEventListener("click", () => window.location.href = "patients.html");
-document.getElementById("nav-appointments").addEventListener("click", () => window.location.href = "appointments.html");
-document.getElementById("nav-reports").addEventListener("click", () => window.location.href = "reports.html");
-
-//  Default language set
-setProfileLang("en");
-
-//  Modal Logic
 document.addEventListener("DOMContentLoaded", () => {
-  const editBtn = document.getElementById("edit-btn");
-  const modal = document.getElementById("edit-modal");
-  const closeModal = document.getElementById("close-modal");
-  const editForm = document.getElementById("edit-profile-form");
-
-  // Open modal
-  if (editBtn) {
-    editBtn.addEventListener("click", () => {
-      modal.style.display = "flex";
-    });
-  }
-
-  // Close modal
-  if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  }
-
-  // Cancel button logic
-const cancelBtn = document.getElementById("cancel-btn");
-if (cancelBtn) {
-  cancelBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-}
-
-  // Save profile
-  if (editForm) {
-    editForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Get values
-      const name = document.getElementById("edit-name").value || "User Name";
-      const username = document.getElementById("edit-username").value || "@username";
-      const email = document.getElementById("edit-email").value || "example@email.com";
-      const contact = document.getElementById("edit-contact").value || "0000-0000000";
-      const dob = document.getElementById("edit-dob").value || "DD-MM-YYYY";
-      const gender = document.getElementById("edit-gender").value || "Not Set";
-      const address = document.getElementById("edit-address").value || "Not Provided";
-      const language = document.getElementById("edit-language").value || "English";
-
-      // Update UI
-      document.getElementById("user-name").innerText = name;
-      document.getElementById("username").innerText = username;
-      document.getElementById("user-email").innerText = "📧 " + email;
-      document.getElementById("user-contact").innerText = "📞 " + contact;
-      document.getElementById("user-dob").innerText = "🎂 " + dob;
-      document.getElementById("user-gender").innerText = "👤 " + gender;
-      document.getElementById("user-address").innerText = "🏠 " + address;
-      document.getElementById("user-language").innerText = "🌐 " + language;
-
-      modal.style.display = "none"; // close modal
-    });
-  }
+  // --- Elements (selected after DOM ready)
+  const sidebar = document.getElementById("profile-sidebar");
+  const profileNav = document.getElementById("nav-profile");
+profileNav.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("Profile button clicked ✅");
 });
 
-//  Profile Picture Change
-const changePicBtn = document.getElementById("change-pic-btn");
-const fileInput = document.getElementById("file-input");
-const profileImg = document.getElementById("profile-img");
+  // Debug helpers
+  if (!sidebar) console.error("profile.js: #profile-sidebar not found in DOM");
+  if (!profileNav) console.error("profile.js: #nav-profile not found in DOM");
 
-if(changePicBtn && fileInput && profileImg){
-  // Jab "Change" button click ho → hidden file input open ho
-  changePicBtn.addEventListener("click", () => {
-    fileInput.click();
-  });
+  // Sidebar toggle
+  if (profileNav && sidebar) {
+    profileNav.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent navigation / reload
+      sidebar.classList.toggle("open");
+    });
 
-  // Jab user image select kare → preview update ho
-  fileInput.addEventListener("change", () => {
-    const file = fileInput.files[0];
-    if(file){
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        profileImg.src = e.target.result; // image ko update karega
-      };
-      reader.readAsDataURL(file);
+    // Close sidebar when clicking outside
+    document.addEventListener("click", (e) => {
+      // if sidebar not open or we clicked on the profileNav, do nothing
+      if (!sidebar.classList.contains("open")) return;
+      if (!sidebar.contains(e.target) && !profileNav.contains(e.target)) {
+        sidebar.classList.remove("open");
+      }
+    });
+  }
+
+  // ===== Profile Modal Logic (safe guarded) =====
+  const sidebarUserImage = document.getElementById("sidebar-user-pic");
+  const sidebarUsername = document.getElementById("sidebar-username");
+  const sidebarEmail = document.getElementById("sidebar-email");
+
+  const modal = document.getElementById("profile-modal");
+  const closeModal = document.getElementById("close-modal");
+  const modalProfilePic = document.getElementById("modal-profile-pic");
+  const uploadInput = document.getElementById("upload-pic");
+  const changePicBtn = document.getElementById("change-pic-btn");
+  const saveProfileBtn = document.getElementById("save-profile-btn");
+  const editName = document.getElementById("edit-name");
+  const editEmail = document.getElementById("edit-email");
+
+  // safe functions
+  function openProfileModal() {
+    if (!modal) return;
+    if (editName && sidebarUsername) editName.value = sidebarUsername.innerText;
+    if (editEmail && sidebarEmail) editEmail.value = sidebarEmail.innerText;
+    if (modalProfilePic && sidebarUserImage) modalProfilePic.src = sidebarUserImage.src;
+    modal.style.display = "flex";
+  }
+
+  if (sidebarUserImage) sidebarUserImage.addEventListener("click", openProfileModal);
+  if (sidebarUsername) sidebarUsername.addEventListener("click", openProfileModal);
+  if (sidebarEmail) sidebarEmail.addEventListener("click", openProfileModal);
+
+  if (closeModal && modal) {
+    closeModal.addEventListener("click", () => { modal.style.display = "none"; });
+  }
+
+  if (changePicBtn && uploadInput) {
+    changePicBtn.addEventListener("click", () => uploadInput.click());
+  }
+
+  if (uploadInput && modalProfilePic) {
+    uploadInput.addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => { modalProfilePic.src = reader.result; };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  if (saveProfileBtn) {
+    saveProfileBtn.addEventListener("click", () => {
+      if (sidebarUsername && editName) sidebarUsername.innerText = editName.value || "User Name";
+      if (sidebarEmail && editEmail) sidebarEmail.innerText = editEmail.value || "user.email@example.com";
+      if (sidebarUserImage && modalProfilePic) sidebarUserImage.src = modalProfilePic.src;
+      if (modal) modal.style.display = "none";
+    });
+  }
+
+  // ===== Bilingual Sidebar Switch =====
+  const translationsSidebar = {
+    en: {
+      title: "Healthcare",
+      dashboard: "Dashboard",
+      notifications: "Notifications",
+      reports: "Reports",
+      settings: "Settings",
+      support: "Support",
+    },
+    ur: {
+      title: "ہیلتھ کیئر",
+      dashboard: "ڈیش بورڈ",
+      notifications: "اطلاعات",
+      reports: "رپورٹس",
+      settings: "ترتیبات",
+      support: "مدد",
     }
-  });
-}
+  };
 
-//  Logout Button
-const logoutBtn = document.getElementById("logout-btn");
-if(logoutBtn){
-  logoutBtn.addEventListener("click", () => {
-    // Agar localStorage use kar rahe hain to clear kar do
-    localStorage.clear();
+  function setSidebarLang(lang) {
+    const t = translationsSidebar[lang] || translationsSidebar.en;
 
-    // Redirect to login page
-    window.location.href = "login.html";
-  });
-}
+    const elTitle = document.getElementById("sidebar-title");
+    const elDashboard = document.getElementById("menu-dashboard");
+    const elNotifications = document.getElementById("menu-notifications");
+    const elReports = document.getElementById("menu-reports");
+    const elSettings = document.getElementById("menu-settings");
+    const elSupport = document.getElementById("menu-support");
 
-// Back button
-document.getElementById("back-btn").addEventListener("click", ()=>{
-  window.location.href = "home.html";  // direct home page pe le jaye
+    if (elTitle) elTitle.innerText = t.title;
+    if (elDashboard) elDashboard.innerText = t.dashboard;
+    if (elNotifications) elNotifications.innerText = t.notifications;
+    if (elReports) elReports.innerText = t.reports;
+    if (elSettings) elSettings.innerText = t.settings;
+    if (elSupport) elSupport.innerText = t.support;
+
+    // Font direction for Urdu (optional; main language handler may already do this)
+    if (lang === "ur") {
+      document.body.style.fontFamily = "'Noto Nastaliq Urdu', serif";
+      document.body.setAttribute("dir", "rtl");
+    } else {
+      document.body.style.fontFamily = "Arial, sans-serif";
+      document.body.setAttribute("dir", "ltr");
+    }
+  }
+
+  // expose globally so Home.js can call if needed
+  window.setSidebarLang = setSidebarLang;
 });

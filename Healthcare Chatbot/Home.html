@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Healthcare Service</title>
   <link rel="stylesheet" href="Styles/Home.css">
+  <link rel="stylesheet" href="Styles/Profile.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
   <header class="header">
-    <span class="back-btn" id="back-btn">←</span>
+    <button id="back-btn" class="back-btn">⬅</button>
     <h1 class="page-title" id="services-title">Healthcare Services</h1>
     <div class="lang-toggle">
       <button class="lang-en">English</button>
@@ -22,8 +23,9 @@
   <main class="main-content">
     <!-- Welcome Section -->
     <section class="welcome-section">
-      <h2 id="welcome">Welcome to Healthcare Service</h2>
-    </section>
+  <h2 id="welcome">Welcome to Healthcare Service</h2>
+  </section>
+
 
     <!-- Search Bar -->
     <div class="search-bar">
@@ -50,7 +52,7 @@
 
   <!-- Bottom Navigation -->
   <nav class="bottom-nav">
-    <a href="Profile.html" class="nav-item" id="nav-profile">
+    <a href="#" class="nav-item" id="nav-profile">
       <span class="icon">👤</span>
       <span class="label" id="profile-label">Profile</span>
     </a>
@@ -68,7 +70,77 @@
     </a>
   </nav>
   
+  <!-- Sidebar -->
+<aside class="sidebar" id="profile-sidebar">
+  <!-- Top Section -->
+  <div class="sidebar-logo">
+    <div class="logo-circle">H</div>
+    <span id="sidebar-title">Healthcare</span>
+  </div>
+
+  <!-- Menu Items -->
+  <nav class="sidebar-menu">
+    <a href="Dashboard.html" class="menu-item active">
+      <span class="icon">🏠</span>
+      <span class="text" id="menu-dashboard">Dashboard</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="icon">🔔</span>
+      <span class="text" id="menu-notifications">Notifications</span>
+      <span class="badge">4</span>
+    </a>
+    <a href="Reports.html" class="menu-item">
+      <span class="icon">📑</span>
+      <span class="text" id="menu-reports">Reports</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="icon">⚙</span>
+      <span class="text" id="menu-settings">Settings</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="icon">❓</span>
+      <span class="text" id="menu-support">Support</span>
+    </a>
+  </nav>
+
+  <!-- Bottom User Info -->
+  <div class="sidebar-user" id="sidebar-user">
+    <img src="Images/default-profile.png" alt="User" class="user-pic" id="sidebar-user-pic">
+    <div class="user-info">
+      <h4 id="sidebar-username">User Name</h4>
+      <p id="sidebar-email">user.email@example.com</p>
+    </div>
+  </div>
+</aside>
+
+<!-- Profile Edit Modal -->
+<div id="profile-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal">&times;</span>
+    <h2>Edit Profile</h2>
+
+    <div class="profile-pic-section">
+      <img src="Images/default-profile.png" id="modal-profile-pic" alt="Profile Picture">
+      <input type="file" id="upload-pic" accept="image/*" hidden>
+      <button id="change-pic-btn">Change Picture</button>
+    </div>
+
+    <label for="edit-name">Full Name</label>
+    <input type="text" id="edit-name" placeholder="Enter your name">
+
+    <label for="edit-email">Email</label>
+    <input type="email" id="edit-email" placeholder="Enter your email">
+
+    <div class="modal-actions">
+      <button id="save-profile-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+
+
   <script src="JS/Home.js"></script>
+  <script src="JS/Profile.js" defer></script>
   <script>
   const savedLang = localStorage.getItem("lang") || "en";
   switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
