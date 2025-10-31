@@ -47,3 +47,4 @@ switchLanguage(savedLang);
 
 // Default language
 switchDashboardLanguage("en");
+

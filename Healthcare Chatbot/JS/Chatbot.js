@@ -82,7 +82,7 @@ document.getElementById("user-input").addEventListener("keypress", function (e) 
 });
 
 const savedLang = localStorage.getItem("lang") || "en";
-switchLanguage(savedLang);
+switchChatLanguage(savedLang);
 
 
 // Back button

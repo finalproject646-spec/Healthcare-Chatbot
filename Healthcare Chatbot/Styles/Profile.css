@@ -2,7 +2,7 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #ffffff;
+  background:url('../Images/Profile.jpg') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,7 +33,7 @@
 .logo-circle {
   width: 35px;
   height: 35px;
-  background-color: #2563eb;
+  background-color: #58f2e5;
   color: #fff;
   font-weight: bold;
   display: flex;

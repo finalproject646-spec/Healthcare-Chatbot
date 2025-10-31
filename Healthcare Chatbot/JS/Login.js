@@ -1,4 +1,4 @@
-// Translations for Login
+// --- Translations for Login ---
 const translationsLogin = {
   en: {
     title: "Login",
@@ -10,7 +10,7 @@ const translationsLogin = {
     remember: "Remember Me",
     login: "Login",
     google: "Continue with Google",
-    footer: 'Don’t have an account? <a href="signup.html">Signup</a>'
+    footer: 'Don’t have an account? <a href="Signup.html">Signup</a>'
   },
   ur: {
     title: "لاگ ان",
@@ -22,27 +22,27 @@ const translationsLogin = {
     remember: "یاد رکھیں",
     login: "لاگ ان",
     google: "گوگل کے ساتھ جاری رکھیں",
-    footer: 'اکاؤنٹ نہیں ہے؟ <a href="signup.html">سائن اپ</a>'
+    footer: 'اکاؤنٹ نہیں ہے؟ <a href="Signup.html">سائن اپ</a>'
   }
 };
 
+// --- Function: Switch Language ---
 function switchLoginLanguage(lang) {
-  currentLang = lang; // <-- keeps track of which language is active
-  const t = translations[lang];
-  document.getElementById("form-title").innerHTML = translationsLogin[lang].title;
-  document.getElementById("form-subtitle").innerHTML = translationsLogin[lang].subtitle;
-  
-  document.getElementById("label-email").innerHTML = translationsLogin[lang].email;
-  document.getElementById("email").placeholder = translationsLogin[lang].emailPlaceholder;
+  currentLang = lang;
+  const t = translationsLogin[lang];
 
-  document.getElementById("label-password").innerHTML = translationsLogin[lang].password;
-  document.getElementById("password").placeholder = translationsLogin[lang].passwordPlaceholder;
+  document.getElementById("form-title").innerHTML = t.title;
+  document.getElementById("form-subtitle").innerHTML = t.subtitle;
+  document.getElementById("label-email").innerHTML = t.email;
+  document.getElementById("email").placeholder = t.emailPlaceholder;
+  document.getElementById("label-password").innerHTML = t.password;
+  document.getElementById("password").placeholder = t.passwordPlaceholder;
+  document.getElementById("remember-text").innerHTML = t.remember;
+  document.getElementById("login-btn").innerHTML = t.login;
+  document.getElementById("google-btn").innerHTML = t.google;
+  document.getElementById("footer-text").innerHTML = t.footer;
 
-  document.getElementById("remember-text").innerHTML = translationsLogin[lang].remember;
-  document.getElementById("login-btn").innerHTML = translationsLogin[lang].login;
-  document.getElementById("google-btn").innerHTML = translationsLogin[lang].google;
-  document.getElementById("footer-text").innerHTML = translationsLogin[lang].footer;
-
+  // Font + direction
   if (lang === "ur") {
     document.body.style.fontFamily = "'Noto Nastaliq Urdu', serif";
     document.body.setAttribute("dir", "rtl");
@@ -52,72 +52,80 @@ function switchLoginLanguage(lang) {
   }
 }
 
-let currentLang = "en"; // default language is English
+// --- Default Language ---
+let currentLang = localStorage.getItem("lang") || "en";
+switchLoginLanguage(currentLang);
 
-
-/// Event Listeners for language buttons
-if (document.querySelector(".lang-en")) {
-  document.querySelector(".lang-en").addEventListener("click", () => {
-    localStorage.setItem("lang", "en");   //  save to localStorage
-    switchLanguage("en");                 //  apply immediately
-  });
-}
-
-if (document.querySelector(".lang-ur")) {
-  document.querySelector(".lang-ur").addEventListener("click", () => {
-    localStorage.setItem("lang", "ur");   //  save to localStorage
-    switchLanguage("ur");                 //  apply immediately
-  });
-}
-// On page load → apply saved language
-const savedLang = localStorage.getItem("lang") || "en";
-switchLanguage(savedLang);
-
-
-
-// Default language
-if (document.getElementById("loginForm")) {
+// --- Language Buttons ---
+document.querySelector(".lang-en").addEventListener("click", () => {
+  localStorage.setItem("lang", "en");
   switchLoginLanguage("en");
+});
+
+document.querySelector(".lang-ur").addEventListener("click", () => {
+  localStorage.setItem("lang", "ur");
+  switchLoginLanguage("ur");
+});
+
+// --- LOGIN LOGIC ---
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  const loginPassword = document.getElementById("password");
+
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = loginPassword.value.trim();
+    const remember = document.getElementById("remember").checked;
+
+    // Simple password validation
+    if (password.length < 8) {
+      alert(currentLang === "ur"
+        ? "پاس ورڈ کم از کم 8 حروف کا ہونا چاہیے"
+        : "Password must be at least 8 characters");
+      return;
+    }
+
+    //  Fake login simulation
+    if (email && password) {
+      alert(currentLang === "ur" ? "لاگ ان کامیاب ✅" : "Login successful ✅");
+
+      // Save login state (use sessionStorage for auto logout on browser close)
+      sessionStorage.setItem("isLoggedIn", "true");
+
+      // If remember me checked, save email
+      if (remember) {
+        localStorage.setItem("rememberEmail", email);
+        localStorage.setItem("rememberPass", password);
+      } else {
+        localStorage.removeItem("rememberEmail");
+        localStorage.removeItem("rememberPass");
+      }
+
+      // Redirect to dashboard
+      window.location.href = "Dashboard.html";
+    }
+  });
+
+  // Autofill remembered email & password
+  document.getElementById("email").value = localStorage.getItem("rememberEmail") || "";
+  document.getElementById("password").value = localStorage.getItem("rememberPass") || "";
 }
 
-//Login form validation and submission
-const loginForm = document.getElementById("login-form");
-const loginPassword = document.getElementById("password");
 
-loginForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  // ✅ password validation (example)
-  if (loginPassword.value.length < 8) {
-    alert(currentLang === "ur" 
-      ? "پاس ورڈ کم از کم 8 حروف کا ہونا چاہیے" 
-      : "Password must be at least 8 characters");
-    return;
+// --- PROTECT DASHBOARD PAGE ---
+if (window.location.pathname.includes("Dashboard.html")) {
+  if (sessionStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "login.html";
   }
+}
 
-  // ✅ If validation passed → redirect to dashboard
-  alert(currentLang === "ur" 
-    ? "لاگ ان کامیاب ✅" 
-    : "Login successful ✅");
-
-  window.location.href = "./Dashboard.html"; // redirect user
-});
-
-//Forget password link
-document.getElementById("forgot-link").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-  
-  if (!email) {
-    alert(currentLang === "ur" 
-      ? "براہ کرم پاس ورڈ ری سیٹ کرنے کے لیے اپنی ای میل درج کریں" 
-      : "Please enter your email to reset password");
-    return;
-  }
-
-  // For backend, Firebase password reset would go here
-  alert(currentLang === "ur" 
-    ? "آپ کے ای میل پر پاس ورڈ ری سیٹ لنک بھیجا گیا ✅" 
-    : "Password reset link has been sent to your email ✅");
-});
+// --- LOGOUT FUNCTION ---
+const logoutBtn = document.getElementById("logout");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    sessionStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+  });
+}
