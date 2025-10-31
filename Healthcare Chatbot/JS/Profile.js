@@ -135,3 +135,5 @@ profileNav.addEventListener("click", (e) => {
   // expose globally so Home.js can call if needed
   window.setSidebarLang = setSidebarLang;
 });
+
+

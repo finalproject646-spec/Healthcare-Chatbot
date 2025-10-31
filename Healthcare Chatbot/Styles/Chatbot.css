@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f1f5f9; /* light grey background */
+  background:url('../Images/Chatbot.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;

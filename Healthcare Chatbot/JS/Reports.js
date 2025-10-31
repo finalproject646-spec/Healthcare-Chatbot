@@ -141,3 +141,5 @@ document.getElementById("back-btn").addEventListener("click", () => {
 
 // Init default
 setLang("en");
+
+
