@@ -6,6 +6,7 @@
   <title>Healthcare Service</title>
   <link rel="stylesheet" href="Styles/Home.css">
   <link rel="stylesheet" href="Styles/Profile.css">
+  <link rel="stylesheet" href="Styles/Notification.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -137,11 +138,33 @@
   </div>
 </div>
 
+<!-- Notification Panel (right-side drawer) -->
+<aside id="notifications-panel" class="notifications-panel" aria-hidden="true">
+  <div class="notifications-header">
+    <h3 id="notifications-title">Notifications</h3>
+    <div class="notifications-actions">
+      <button id="mark-all-btn" class="small-btn">Mark all as read</button>
+      <button id="clear-all-btn" class="small-btn">Clear all</button>
+      <button id="close-notifications" class="close-btn" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <div id="notifications-list" class="notifications-list">
+    <!-- Notifications inserted here by JS -->
+  </div>
+
+  <div class="notifications-footer">
+    <button id="load-sample" class="small-btn">Load sample</button>
+    <small id="notif-count" class="notif-count">0 new</small>
+  </div>
+</aside>
 
 
 
+  
   <script src="JS/Home.js"></script>
   <script src="JS/Profile.js" defer></script>
+  <script src="JS/Notification.js"></script>
   <script>
   const savedLang = localStorage.getItem("lang") || "en";
   switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
