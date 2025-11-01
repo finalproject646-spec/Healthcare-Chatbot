@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="Styles/Profile.css">
   <link rel="stylesheet" href="Styles/Notification.css">
   <link rel="stylesheet" href="Styles/Setting.css">
+  <link rel="stylesheet" href="Styles/Support.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -218,10 +219,61 @@
 <!-- Background Overlay -->
 <div id="settingsOverlay" class="settings-overlay"></div>
 
+<!-- Support Sidebar -->
+<aside class="support-sidebar" id="support-sidebar">
+  <div class="support-header">
+    <h2 id="support-title">💬 Support</h2>
+    <span class="close-support" id="close-support">&times;</span>
+  </div>
+
+  <div class="support-content">
+    <!-- FAQ Section -->
+    <section class="support-section">
+      <h3 id="faq-title">📘 FAQs</h3>
+      <ul class="faq-list">
+        <li><strong>How to book an appointment?</strong><br>Go to Appointments → Book Now.</li>
+        <li><strong>How to view reports?</strong><br>Open Reports section on dashboard.</li>
+        <li><strong>How to contact support?</strong><br>Use the form below or live chat.</li>
+      </ul>
+    </section>
+
+    <!-- Live Chat -->
+    <section class="support-section">
+      <h3 id="live-chat-title">💬 Live Chat Support</h3>
+      <button id="start-chat">Start Chat</button>
+      <div id="chat-box" class="chat-box hidden">
+        <div id="chat-messages" class="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="send-msg">Send</button>
+      </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="support-section">
+      <h3 id="contact-title">📩 Contact Support</h3>
+      <input type="text" id="support-name" placeholder="Your Name" />
+      <input type="email" id="support-email" placeholder="Your Email" />
+      <textarea id="support-message" placeholder="Your Message"></textarea>
+      <button id="send-support">Send Message</button>
+    </section>
+
+    <!-- Privacy Policy -->
+    <section class="support-section">
+      <h3 id="privacy-title">🔒 Privacy Policy</h3>
+      <p id="privacy-text">
+        We ensure your data is kept secure and private. We never share your information
+        without your consent.
+      </p>
+    </section>
+  </div>
+</aside>
+
+
   <script src="JS/Home.js"></script>
   <script src="JS/Profile.js" defer></script>
   <script src="JS/Notification.js"></script>
   <script src="JS/Setting.js" defer></script>
+  <script src="JS/Support.js" defer></script>
   <script> 
   const savedLang = localStorage.getItem("lang") || "en";
   switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
