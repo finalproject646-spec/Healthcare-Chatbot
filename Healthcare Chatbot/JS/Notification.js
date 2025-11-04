@@ -300,3 +300,5 @@ if (notifBtn && notifPanel && closeNotif) {
     notifPanel.classList.remove('active');
   });
 }
+
+

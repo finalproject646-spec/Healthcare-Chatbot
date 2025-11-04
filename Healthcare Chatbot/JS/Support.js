@@ -51,3 +51,5 @@ sendMsg.addEventListener("click", () => {
 document.getElementById("send-support").addEventListener("click", () => {
   alert("Your message has been sent! Our support team will contact you soon.");
 });
+
+
