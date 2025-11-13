@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Service</title>
+  <link rel="stylesheet" href="Styles/Home.css">
+  <link rel="stylesheet" href="Styles/Profile.css">
+  <link rel="stylesheet" href="Styles/Notification.css">
+  <link rel="stylesheet" href="Styles/Setting.css">
+  <link rel="stylesheet" href="Styles/Support.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <button id="back-btn" class="back-btn">⬅</button>
+    <h1 class="page-title" id="services-title">Healthcare Services</h1>
+    <div class="lang-toggle">
+      <button class="lang-en">English</button>
+      <button class="lang-ur">اردو</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+  <h2 id="welcome">Welcome to Healthcare Service</h2>
+  </section>
+
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="🔍 Search by Patient Name or Appointment ID">
+      <button class="search-btn" id="search-btn">Search</button>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-container">
+      <div class="stat-card">
+        <h3 id="patients-stat-title">👨‍⚕️ Patients</h3>
+        <p id="patients-stat-value">120</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="appointments-stat-title">📅 Appointments</h3>
+        <p id="appointments-stat-value">5 Upcoming</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="reports-stat-title">📑 Reports</h3>
+        <p id="reports-stat-value">45 Available</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item" id="nav-profile">
+      <span class="icon">👤</span>
+      <span class="label" id="profile-label">Profile</span>
+    </a>
+    <a href="Patients.html" class="nav-item" id="nav-patients">
+      <span class="icon">🧑‍⚕️</span>
+      <span class="label" id="nav-patients-label">Patients Records</span>
+    </a>
+    <a href="Appointment.html" class="nav-item" id="nav-appointments">
+      <span class="icon">📅</span>
+      <span class="label" id="nav-appointments-label">Appointments</span>
+    </a>
+    <a href="Reports.html" class="nav-item" id="nav-reports">
+      <span class="icon">📑</span>
+      <span class="label" id="nav-reports-label">Reports</span>
+    </a>
+  </nav>
+  
+  <!-- Sidebar -->
+<aside class="sidebar" id="profile-sidebar">
+  <!-- Top Section -->
+  <div class="sidebar-logo">
+    <div class="logo-circle">H</div>
+    <span id="sidebar-title">Healthcare</span>
+  </div>
+
+  <!-- Menu Items -->
+  <nav class="sidebar-menu">
+    <a href="Dashboard.html" class="menu-item active">
+      <span class="icon">🏠</span>
+      <span class="text" id="menu-dashboard">Dashboard</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="icon">🔔</span>
+      <span class="text" id="menu-notifications">Notifications</span>
+      <span class="badge">4</span>
+    </a>
+    <a href="Reports.html" class="menu-item">
+      <span class="icon">📑</span>
+      <span class="text" id="menu-reports">Reports</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="icon">⚙</span>
+      <span class="text" id="menu-settings">Settings</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="icon">❓</span>
+      <span class="text" id="menu-support">Support</span>
+    </a>
+  </nav>
+
+  <!-- Bottom User Info -->
+  <div class="sidebar-user" id="sidebar-user">
+    <img src="Images/Default_Profile.jpg" alt="User" class="user-pic" id="sidebar-user-pic">
+    <div class="user-info">
+      <h4 id="sidebar-username">User Name</h4>
+      <p id="sidebar-email">user.email@example.com</p>
+    </div>
+  </div>
+</aside>
+
+<!-- Profile Edit Modal -->
+<div id="profile-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal">&times;</span>
+    <h2>Edit Profile</h2>
+
+    <div class="profile-pic-section">
+      <img src="Images/default-profile.png" id="modal-profile-pic" alt="Profile Picture">
+      <input type="file" id="upload-pic" accept="image/*" hidden>
+      <button id="change-pic-btn">Change Picture</button>
+    </div>
+
+    <label for="edit-name">Full Name</label>
+    <input type="text" id="edit-name" placeholder="Enter your name">
+
+    <label for="edit-email">Email</label>
+    <input type="email" id="edit-email" placeholder="Enter your email">
+
+    <div class="modal-actions">
+      <button id="save-profile-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Notification Panel (right-side drawer) -->
+<aside id="notifications-panel" class="notifications-panel" aria-hidden="true">
+  <div class="notifications-header">
+    <h3 id="notifications-title">Notifications</h3>
+    <div class="notifications-actions">
+      <button id="mark-all-btn" class="small-btn">Mark all as read</button>
+      <button id="clear-all-btn" class="small-btn">Clear all</button>
+      <button id="close-notifications" class="close-btn" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <div id="notifications-list" class="notifications-list">
+    <!-- Notifications inserted here by JS -->
+  </div>
+
+  <div class="notifications-footer">
+    <button id="load-sample" class="small-btn">Load sample</button>
+    <small id="notif-count" class="notif-count">0 new</small>
+  </div>
+</aside>
+
+<!-- ⚙️ Settings Side Panel -->
+<div id="settingsPanel" class="settings-panel">
+  <div class="settings-header">
+    <h2>⚙ Settings</h2>
+    <span id="closeSettings" class="close-btn">&times;</span>
+  </div>
+
+  <div class="settings-section">
+    <h3>👤 Account Settings</h3>
+    <ul>
+      <li><a href="#">Change Password</a></li>
+      <li><a href="#">Change Email</a></li>
+    </ul>
+  </div>
+
+  <div class="settings-section">
+    <h3>🎨 Appearance</h3>
+    <div class="toggle-row">
+      <span>Theme</span>
+      <select id="themeSelect">
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>🌐 Language</h3>
+    <div class="toggle-row">
+      <span>App Language</span>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="ur">اردو</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>🔔 Notifications</h3>
+    <div class="switch-row">
+      <span>Enable Notifications</span>
+      <label class="switch">
+        <input type="checkbox" id="notifSwitch" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>🔒 Security</h3>
+    <label><input type="checkbox" id="twoFAToggle"> Enable 2FA</label><br>
+    <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+  </div>
+</div>
+
+<!-- Background Overlay -->
+<div id="settingsOverlay" class="settings-overlay"></div>
+
+<!-- Support Sidebar -->
+<aside class="support-sidebar" id="support-sidebar">
+  <div class="support-header">
+    <h2 id="support-title">💬 Support</h2>
+    <span class="close-support" id="close-support">&times;</span>
+  </div>
+
+  <div class="support-content">
+    <!-- FAQ Section -->
+    <section class="support-section">
+      <h3 id="faq-title">📘 FAQs</h3>
+      <ul class="faq-list">
+        <li><strong>How to book an appointment?</strong><br>Go to Appointments → Book Now.</li>
+        <li><strong>How to view reports?</strong><br>Open Reports section on dashboard.</li>
+        <li><strong>How to contact support?</strong><br>Use the form below or live chat.</li>
+      </ul>
+    </section>
+
+    <!-- Live Chat -->
+    <section class="support-section">
+      <h3 id="live-chat-title">💬 Live Chat Support</h3>
+      <button id="start-chat">Start Chat</button>
+      <div id="chat-box" class="chat-box hidden">
+        <div id="chat-messages" class="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="send-msg">Send</button>
+      </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="support-section">
+      <h3 id="contact-title">📩 Contact Support</h3>
+      <input type="text" id="support-name" placeholder="Your Name" />
+      <input type="email" id="support-email" placeholder="Your Email" />
+      <textarea id="support-message" placeholder="Your Message"></textarea>
+      <button id="send-support">Send Message</button>
+    </section>
+
+    <!-- Privacy Policy -->
+    <section class="support-section">
+      <h3 id="privacy-title">🔒 Privacy Policy</h3>
+      <p id="privacy-text">
+        We ensure your data is kept secure and private. We never share your information
+        without your consent.
+      </p>
+    </section>
+  </div>
+</aside>
+
+
+  <script src="JS/Home.js"></script>
+  <script src="JS/Profile.js" defer></script>
+  <script src="JS/Notification.js"></script>
+  <script src="JS/Setting.js" defer></script>
+  <script src="JS/Support.js" defer></script>
+  <script src="JS/Language.js" ></script>
+  <script> 
+  const savedLang = localStorage.getItem("lang") || "en";
+  switchLanguage(savedLang);   // Jo language save hai, wahi apply karega
+  </script>
+
+</body>
+</html>
